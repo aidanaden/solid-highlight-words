@@ -1,0 +1,100 @@
+{
+  "name": "solid-highlight-words",
+  "version": "0.0.1",
+  "description": "Solid component for syntax highlighting, based on react-highlight and highlightjs' vue plugin",
+  "license": "MIT",
+  "author": {
+    "name": "Aidan Aden",
+    "email": "aidan@u.nus.edu",
+    "url": "https://github.com/aidanaden"
+  },
+  "contributors": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aidanaden/solid-highlight-words.git"
+  },
+  "homepage": "https://github.com/aidanaden/solid-highlight-words#readme",
+  "bugs": {
+    "url": "https://github.com/aidanaden/solid-highlight-words/issues"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "private": false,
+  "sideEffects": false,
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "browser": {},
+  "exports": {
+    "solid": {
+      "development": "./dist/dev.jsx",
+      "import": "./dist/index.jsx"
+    },
+    "development": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/dev.js"
+      }
+    },
+    "import": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "typesVersions": {},
+  "scripts": {
+    "dev": "vite serve dev",
+    "build": "tsup",
+    "prepublishOnly": "pnpm build",
+    "format": "pnpx @biomejs/biome check --apply . \"./src/**/*.{json,css,tsx,jsx}\" \"./dev/**/*.{json,css,tsx,jsx}\"",
+    "lint": "concurrently pnpm:lint:*",
+    "lint:code": "pnpm eslint --ignore-path .gitignore  --fix ./src/**/*.tsx",
+    "lint:types": "pnpm tsc-silent --noEmit -p tsconfig.json --suppress @/node_modules/@solidjs/start/",
+    "update-deps": "pnpm up -Li"
+  },
+  "peerDependencies": {
+    "solid-js": "^1.8.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.5.0",
+    "@changesets/cli": "^2.27.1",
+    "@types/highlight-words-core": "^1.2.3",
+    "@types/node": "^20.10.8",
+    "@typescript-eslint/eslint-plugin": "^6.18.1",
+    "@typescript-eslint/parser": "^6.18.1",
+    "concurrently": "^8.2.2",
+    "esbuild": "^0.19.11",
+    "esbuild-plugin-solid": "^0.5.0",
+    "eslint": "^8.56.0",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-no-only-tests": "^3.1.0",
+    "highlight-words-core": "^1.2.2",
+    "jsdom": "^23.2.0",
+    "solid-js": "^1.8.9",
+    "tsc-silent": "^1.2.2",
+    "tsup": "^8.0.1",
+    "tsup-preset-solid": "^2.2.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.11",
+    "vite-plugin-solid": "^2.8.0"
+  },
+  "keywords": [
+    "solidjs component",
+    "solid-component",
+    "solid",
+    "syntax",
+    "highlighting",
+    "highlight",
+    "code",
+    "syntax",
+    "typescript"
+  ],
+  "engines": {
+    "node": ">=18"
+  }
+}
