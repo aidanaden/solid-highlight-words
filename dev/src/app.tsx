@@ -23,6 +23,7 @@ export const HighlighterExample: Component = () => {
       textToHighlight: textToHighlight(),
       activeIdx: activeIdx(),
       caseSensitive: caseSensitive(),
+      searchWords: searchWords(),
     });
   });
   return (
