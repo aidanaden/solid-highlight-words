@@ -2,7 +2,7 @@ import latinize from "latinize";
 import { Component, createEffect, createMemo, createSignal } from "solid-js";
 
 import { Highlighter } from "../../src";
-import styles from "./app.module.css";
+import "./app.css";
 
 export const HighlighterExample: Component = () => {
   const [searchText, setSearchText] = createSignal("and or the");
@@ -27,31 +27,31 @@ export const HighlighterExample: Component = () => {
   });
   return (
     <div>
-      <div class={styles.Row}>
-        <div class={styles.FirstColumn}>
-          <h4 class={styles.Header}>Search terms</h4>
+      <div class={"Row"}>
+        <div class={"FirstColumn"}>
+          <h4 class={"Header"}>Search terms</h4>
           <input
-            class={styles.Input}
+            class={"Input"}
             name="searchTerms"
             value={searchText()}
             onInput={(event) => setSearchText(event.target.value)}
           />
         </div>
-        <div class={styles.SecondColumn}>
-          <h4 class={styles.Header}>Active Index</h4>
+        <div class={"SecondColumn"}>
+          <h4 class={"Header"}>Active Index</h4>
           <input
-            class={styles.Input}
+            class={"Input"}
             name="activeIndex"
             value={activeIdx()}
             onInput={(event) => setActiveIdx(parseInt(event.target.value))}
             type="number"
           />
         </div>
-        <div class={styles.SecondColumn}>
-          <h4 class={styles.Header}>Case Sensitive?</h4>
+        <div class={"SecondColumn"}>
+          <h4 class={"Header"}>Case Sensitive?</h4>
           <input
             checked={caseSensitive()}
-            class={styles.Input}
+            class={"Input"}
             name="caseSensitive"
             onInput={(event) => setCaseSensitive(event.target.checked)}
             type="checkbox"
@@ -59,27 +59,27 @@ export const HighlighterExample: Component = () => {
         </div>
       </div>
 
-      <h4 class={styles.Header}>Body of Text</h4>
+      <h4 class={"Header"}>Body of Text</h4>
       <textarea
-        class={styles.Input}
+        class={"Input"}
         name="textToHighlight"
         value={textToHighlight()}
         onInput={(event) => setTextToHighlight(event.target.value)}
       />
 
-      <h4 class={styles.Header}>Output</h4>
+      <h4 class={"Header"}>Output</h4>
 
       <Highlighter
         activeIdx={activeIdx()}
-        activeStyle={styles.Active}
+        activeClass={"Active"}
         caseSensitive={caseSensitive()}
-        highlightStyle={styles.Highlight}
+        highlightClass={"Highlight"}
         sanitize={latinize}
         searchWords={searchWords()}
         textToHighlight={textToHighlight()}
       />
 
-      <p class={styles.Footer}>
+      <p class={"Footer"}>
         <a href="https://github.com/aidanaden/solid-highlight-words/blob/main/dev/src/app.tsx">
           View the source
         </a>

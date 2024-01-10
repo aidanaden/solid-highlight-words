@@ -5,6 +5,7 @@ import {
   For,
   ValidComponent,
   createMemo,
+  createSignal,
   mergeProps,
   splitProps,
 } from "solid-js";
@@ -27,6 +28,7 @@ type Props = FindAllArgs & {
  * This function returns an array of strings and <span>s (wrapping highlighted words).
  */
 export const Highlighter: Component<Props> = (_props) => {
+  let highlightedIdx = -1;
   const props = mergeProps(
     {
       activeIdx: -1,
@@ -70,32 +72,47 @@ export const Highlighter: Component<Props> = (_props) => {
   return (
     <span {...rest}>
       <For each={chunks()}>
-        {(chunk, i) => (
-          <Dynamic
-            component={
-              chunk.highlight ? props.highlightTag : props.unhighlightTag
-            }
-            class={`${
-              chunk.highlight ? props.highlightClass : props.unhighlightClass
-            } ${
-              props.activeIdx === i() && chunk.highlight
-                ? props.activeClass
-                : ""
-            }`}
-            style={
-              props.activeStyle &&
-              i() === props.activeIdx &&
-              typeof props.highlightStyle === "object" &&
-              typeof props.activeStyle === "object"
-                ? { ...props.highlightStyle, ...props.activeStyle }
-                : !!props.highlightStyle
-                ? props.highlightStyle
-                : undefined
-            }
-          >
-            {props.textToHighlight.substr(chunk.start, chunk.end - chunk.start)}
-          </Dynamic>
-        )}
+        {(chunk) => {
+          const [hIdx, setHIdx] = createSignal(highlightedIdx);
+          if (chunk.highlight) {
+            highlightedIdx++;
+            setHIdx((prev) => prev + 1);
+          }
+          return (
+            <Dynamic
+              component={
+                chunk.highlight ? props.highlightTag : props.unhighlightTag
+              }
+              class={
+                chunk.highlight ? props.highlightClass : props.unhighlightClass
+              }
+              classList={{
+                [props.activeClass]:
+                  props.activeIdx === hIdx() && chunk.highlight,
+              }}
+              style={
+                props.activeStyle &&
+                hIdx() === props.activeIdx &&
+                chunk.highlight
+                  ? typeof props.highlightStyle === "object" &&
+                    typeof props.activeStyle === "object"
+                    ? { ...props.highlightStyle, ...props.activeStyle }
+                    : typeof props.highlightStyle === "string" &&
+                      typeof props.activeStyle === "string"
+                    ? `${props.highlightStyle} ${props.activeStyle}`
+                    : ""
+                  : !!props.highlightStyle
+                  ? props.highlightStyle
+                  : undefined
+              }
+            >
+              {props.textToHighlight.substr(
+                chunk.start,
+                chunk.end - chunk.start
+              )}
+            </Dynamic>
+          );
+        }}
       </For>
     </span>
   );
