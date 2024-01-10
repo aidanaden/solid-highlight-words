@@ -1,5 +1,11 @@
 # solid-highlight
 
+## 1.0.0
+
+### Major Changes
+
+- Initial release
+
 ## 0.1.15
 
 ### Patch Changes

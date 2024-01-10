@@ -5,22 +5,16 @@ import { Highlighter } from "../../src";
 import styles from "./app.module.css";
 
 export const HighlighterExample: Component = () => {
-  const state = {
-    searchText: "and or the",
-    textToHighlight: `When in the Course of human events it becomes necessary for one people to dissolve the political bands which have connected them with another and to assume among the powers of the earth, the separate and equal station to which the Laws of Nature and of Nature's God entitle them, a decent respect to the opinions of mankind requires that they should declare the causes which impel them to the separation.`,
-    activeIndex: -1,
-    caseSensitive: false,
-  };
   const [searchText, setSearchText] = createSignal("and or the");
   const [textToHighlight, setTextToHighlight] = createSignal(
-    `When in the Course of human events it becomes necessary for one people to dissolve the political bands which have connected them with another and to assume among the powers of the earth, the separate and equal station to which the Laws of Nature and of Nature's God entitle them, a decent respect to the opinions of mankind requires that they should declare the causes which impel them to the separation.`,
+    `When in the Course of human events it becomes necessary for one people to dissolve the political bands which have connected them with another and to assume among the powers of the earth, the separate and equal station to which the Laws of Nature and of Nature's God entitle them, a decent respect to the opinions of mankind requires that they should declare the causes which impel them to the separation.`
   );
   const [activeIdx, setActiveIdx] = createSignal(-1);
   const [caseSensitive, setCaseSensitive] = createSignal(false);
   const searchWords = createMemo(() =>
     searchText()
       .split(/\s/)
-      .filter((word) => word),
+      .filter((word) => word)
   );
 
   createEffect(() => {
@@ -49,7 +43,7 @@ export const HighlighterExample: Component = () => {
             class={styles.Input}
             name="activeIndex"
             value={activeIdx()}
-            onInput={(event) => setActiveIdx(parseInt(event.target.value, 10))}
+            onInput={(event) => setActiveIdx(parseInt(event.target.value))}
             type="number"
           />
         </div>
