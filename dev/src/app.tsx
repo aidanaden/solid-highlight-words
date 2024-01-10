@@ -1,7 +1,7 @@
 import latinize from "latinize";
+import { Highlighter } from "solid-highlight-words";
 import { Component, createEffect, createMemo, createSignal } from "solid-js";
 
-import { Highlighter } from "../../src";
 import styles from "./app.module.css";
 
 export const HighlighterExample: Component = () => {
