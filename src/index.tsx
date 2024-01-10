@@ -4,6 +4,7 @@ import {
   ComponentProps,
   For,
   ValidComponent,
+  createEffect,
   createMemo,
   createSignal,
   mergeProps,
@@ -69,6 +70,7 @@ export const Highlighter: Component<Props> = (_props) => {
       textToHighlight: props.textToHighlight,
     });
   });
+  createEffect(() => console.log("chunk", chunks()));
   return (
     <span {...rest}>
       <For each={chunks()}>
