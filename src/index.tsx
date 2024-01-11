@@ -72,12 +72,14 @@ export const Highlighter: Component<Props> = (_props) => {
   return (
     <span {...rest}>
       <For each={chunks()}>
-        {(chunk) => {
-          const [hIdx, setHIdx] = createSignal(highlightedIdx);
+        {(chunk, i) => {
+          if (i() === 0) {
+            highlightedIdx = 0;
+          }
           if (chunk.highlight) {
             highlightedIdx++;
-            setHIdx((prev) => prev + 1);
           }
+          const [currHighlightIdx] = createSignal(highlightedIdx);
           return (
             <Dynamic
               component={
@@ -88,11 +90,11 @@ export const Highlighter: Component<Props> = (_props) => {
               }
               classList={{
                 [props.activeClass]:
-                  props.activeIdx === hIdx() && chunk.highlight,
+                  props.activeIdx === currHighlightIdx() && chunk.highlight,
               }}
               style={
                 props.activeStyle &&
-                hIdx() === props.activeIdx &&
+                currHighlightIdx() === props.activeIdx &&
                 chunk.highlight
                   ? typeof props.highlightStyle === "object" &&
                     typeof props.activeStyle === "object"
