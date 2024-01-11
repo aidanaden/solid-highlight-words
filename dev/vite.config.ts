@@ -2,9 +2,9 @@ import { defineConfig } from "@solidjs/start/config";
 
 export default defineConfig({
   start: {
-    ssr: false,
+    ssr: true,
     server: {
-      preset: "cloudflare-pages",
+      preset: "cloudflare-pages-static",
     },
   },
 });

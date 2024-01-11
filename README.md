@@ -2,7 +2,7 @@
 
 Solid component to highlight words within a larger body of text. Based on [react-highlight-words](https://github.com/bvaughn/react-highlight-words)
 
-Check out a demo [here](https://bvaughn.github.io/solid-highlight-words).
+Check out a demo [here](https://solid-highlight-words.pages.dev).
 
 ## Usage
 

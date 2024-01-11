@@ -1,6 +1,6 @@
 import latinize from "latinize";
 import { Highlighter } from "solid-highlight-words";
-import { Component, createEffect, createMemo, createSignal } from "solid-js";
+import { Component, createMemo, createSignal } from "solid-js";
 
 import styles from "./app.module.css";
 
@@ -16,9 +16,6 @@ export const HighlighterExample: Component = () => {
       .split(/\s/)
       .filter((word) => word)
   );
-  createEffect(() => {
-    console.log("active: ", activeIdx());
-  });
   return (
     <div>
       <div class={styles.Row}>
