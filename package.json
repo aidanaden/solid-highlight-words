@@ -1,6 +1,6 @@
 {
   "name": "solid-highlight-words",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Solid component for syntax highlighting, based on react-highlight and highlightjs' vue plugin",
   "license": "MIT",
   "author": {

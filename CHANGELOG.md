@@ -1,5 +1,11 @@
 # solid-highlight
 
+## 1.0.1
+
+### Patch Changes
+
+- fix active class
+
 ## 1.0.0
 
 ### Major Changes
