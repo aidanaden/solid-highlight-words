@@ -8,7 +8,7 @@ Check out a demo [here](https://solid-highlight-words.pages.dev).
 
 To use it, just provide it with an array of search terms and a body of text to highlight.
 
-[Try this example in Code Sandbox.](https://codesandbox.io/s/5v8yqoxv7k)
+[Try this example in Code Sandbox.](https://codesandbox.io/p/sandbox/elated-dubinsky-nxrpvj)
 
 ```jsx
 import { createRoot } from "solid-js";
