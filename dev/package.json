@@ -10,7 +10,7 @@
     "@solidjs/start": "^0.4.9",
     "highlight.js": "^11.9.0",
     "latinize": "^2.0.0",
-    "solid-highlight-words": "^1.0.1",
+    "solid-highlight-words": "^1.0.2",
     "solid-js": "^1.8.11",
     "vinxi": "^0.1.2"
   },
