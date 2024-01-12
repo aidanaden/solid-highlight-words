@@ -1,3 +1,7 @@
+<p>
+  <img width="100%" src="https://assets.solidjs.com/banner?type=solid-highlight-words&background=tiles&project=%20" alt="solid-highlight-words">
+</p>
+
 # solid-highlight-words
 
 >
@@ -5,6 +9,7 @@
 [![size](https://img.shields.io/bundlephobia/minzip/solid-highlight-words?style=for-the-badge)](https://bundlephobia.com/package/solid-highlight-words)
 [![size](https://img.shields.io/npm/v/solid-highlight-words?style=for-the-badge)](https://www.npmjs.com/package/solid-highlight-words)
 ![npm](https://img.shields.io/npm/dw/solid-highlight-words?style=for-the-badge)
+[![pnpm](https://img.shields.io/badge/maintained%20with-pnpm-cc00ff.svg?style=for-the-badge&logo=pnpm)](https://pnpm.io/)
 
 [download-image]: https://img.shields.io/npm/dm/solid-highlight-words.svg
 [download-url]: https://npmjs.org/package/solid-highlight-words
@@ -16,6 +21,16 @@ Solid component to highlight words within a larger body of text. Based on [react
 Check out a demo [here](https://solid-highlight-words.pages.dev).
 
 ## Usage
+
+Install it:
+
+```bash
+npm i solid-highlight-words
+# or
+yarn add solid-highlight-words
+# or
+pnpm add solid-highlight-words
+```
 
 To use it, just provide it with an array of search terms and a body of text to highlight.
 
