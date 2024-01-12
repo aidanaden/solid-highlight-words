@@ -2,7 +2,7 @@ import latinize from "latinize";
 import { Highlighter } from "solid-highlight-words";
 import { Component, createMemo, createSignal } from "solid-js";
 
-import styles from "./app.module.css";
+import "./main.css";
 
 export const HighlighterExample: Component = () => {
   const [searchText, setSearchText] = createSignal("and or the");
@@ -17,32 +17,32 @@ export const HighlighterExample: Component = () => {
       .filter((word) => word)
   );
   return (
-    <div>
-      <div class={styles.Row}>
-        <div class={styles.FirstColumn}>
-          <h4 class={styles.Header}>Search terms</h4>
+    <div class="p-3">
+      <div class="flex flex-row items-start gap-3">
+        <div class="flex flex-col gap-1.5">
+          <h4 class="text-lg">Search terms</h4>
           <input
-            class={styles.Input}
+            class="w-full border border-[#78909c] leading-[1.4] py-[0.3em] px-[0.5em] rounded-[0.3em] mb-[1em] text-[1em]"
             name="searchTerms"
             value={searchText()}
             onInput={(event) => setSearchText(event.target.value)}
           />
         </div>
-        <div class={styles.SecondColumn}>
-          <h4 class={styles.Header}>Active Index</h4>
+        <div class="flex flex-col gap-1.5">
+          <h4 class="text-lg">Active Index</h4>
           <input
-            class={styles.Input}
+            class="w-full border border-[#78909c] leading-[1.4] py-[0.3em] px-[0.5em] rounded-[0.3em] mb-[1em] text-[1em]"
             name="activeIndex"
             value={activeIdx()}
             onInput={(event) => setActiveIdx(parseInt(event.target.value))}
             type="number"
           />
         </div>
-        <div class={styles.SecondColumn}>
-          <h4 class={styles.Header}>Case Sensitive?</h4>
+        <div class="flex flex-col gap-1.5">
+          <h4 class="text-lg">Case Sensitive?</h4>
           <input
             checked={caseSensitive()}
-            class={styles.Input}
+            class="w-full border border-[#78909c] leading-[1.4] py-[0.3em] px-[0.5em] rounded-[0.3em] mb-[1em] text-[1em]"
             name="caseSensitive"
             onInput={(event) => setCaseSensitive(event.target.checked)}
             type="checkbox"
@@ -50,31 +50,35 @@ export const HighlighterExample: Component = () => {
         </div>
       </div>
 
-      <h4 class={styles.Header}>Body of Text</h4>
-      <textarea
-        class={styles.Input}
-        name="textToHighlight"
-        value={textToHighlight()}
-        onInput={(event) => setTextToHighlight(event.target.value)}
-      />
+      <div class="flex flex-col gap-1.5">
+        <h4 class="text-lg">Body of Text</h4>
+        <textarea
+          class="w-full border border-[#78909c] leading-[1.4] py-[0.3em] px-[0.5em] rounded-[0.3em] mb-[1em] text-[1em]"
+          name="textToHighlight"
+          value={textToHighlight()}
+          onInput={(event) => setTextToHighlight(event.target.value)}
+        />
+      </div>
 
-      <h4 class={styles.Header}>Output</h4>
+      <div class="flex flex-col gap-1.5">
+        <h4 class="text-lg">Output</h4>
 
-      <Highlighter
-        activeIdx={activeIdx()}
-        activeClass={styles.Active}
-        caseSensitive={caseSensitive()}
-        highlightClass={styles.Highlight}
-        sanitize={latinize}
-        searchWords={searchWords()}
-        textToHighlight={textToHighlight()}
-      />
+        <Highlighter
+          activeIdx={activeIdx()}
+          activeClass="bg-[#f48f42]"
+          caseSensitive={caseSensitive()}
+          highlightClass="bg-[#ffd54f"
+          sanitize={latinize}
+          searchWords={searchWords()}
+          textToHighlight={textToHighlight()}
+        />
 
-      <p class={styles.Footer}>
-        <a href="https://github.com/aidanaden/solid-highlight-words/blob/main/dev/src/app.tsx">
-          View the source
-        </a>
-      </p>
+        <p class="mb-0">
+          <a href="https://github.com/aidanaden/solid-highlight-words/blob/main/dev/src/app.tsx">
+            View the source
+          </a>
+        </p>
+      </div>
     </div>
   );
 };
