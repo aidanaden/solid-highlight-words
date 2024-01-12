@@ -1,5 +1,11 @@
 # solid-highlight
 
+## 1.0.2
+
+### Patch Changes
+
+- bump deps
+
 ## 1.0.1
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "solid-highlight-words",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Solid component for syntax highlighting, based on react-highlight and highlightjs' vue plugin",
   "license": "MIT",
   "author": {
@@ -18,7 +18,8 @@
     "url": "https://github.com/aidanaden/solid-highlight-words/issues"
   },
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "publishConfig": {
     "access": "public"
@@ -61,10 +62,10 @@
     "solid-js": "^1.8.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.5.0",
+    "@biomejs/biome": "1.5.1",
     "@changesets/cli": "^2.27.1",
     "@types/highlight-words-core": "^1.2.3",
-    "@types/node": "^20.10.8",
+    "@types/node": "^20.11.0",
     "@typescript-eslint/eslint-plugin": "^6.18.1",
     "@typescript-eslint/parser": "^6.18.1",
     "concurrently": "^8.2.2",
@@ -75,7 +76,7 @@
     "eslint-plugin-no-only-tests": "^3.1.0",
     "highlight-words-core": "^1.2.2",
     "jsdom": "^23.2.0",
-    "solid-js": "^1.8.9",
+    "solid-js": "^1.8.11",
     "tsc-silent": "^1.2.2",
     "tsup": "^8.0.1",
     "tsup-preset-solid": "^2.2.0",
