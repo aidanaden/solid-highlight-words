@@ -75,7 +75,7 @@
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-no-only-tests": "^3.1.0",
     "highlight-words-core": "^1.2.2",
-    "jsdom": "^23.2.0",
+    "jsdom": "^24.0.0",
     "solid-js": "^1.8.11",
     "tsc-silent": "^1.2.2",
     "tsup": "^8.0.1",
