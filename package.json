@@ -52,7 +52,7 @@
     "dev": "vite serve dev",
     "build": "tsup",
     "prepublishOnly": "pnpm build",
-    "format": "pnpx @biomejs/biome check --apply . \"./src/**/*.{json,css,tsx,jsx}\" \"./dev/**/*.{json,css,tsx,jsx}\"",
+    "format": "pnpx @biomejs/biome check --apply . \"./src\" \"./dev\"",
     "lint": "concurrently pnpm:lint:*",
     "lint:code": "pnpm eslint --ignore-path .gitignore  --fix ./src/**/*.tsx",
     "lint:types": "pnpm tsc-silent --noEmit -p tsconfig.json --suppress @/node_modules/@solidjs/start/",
@@ -80,9 +80,7 @@
     "tsc-silent": "^1.2.2",
     "tsup": "^8.0.1",
     "tsup-preset-solid": "^2.2.0",
-    "typescript": "^5.3.3",
-    "vite": "^5.0.11",
-    "vite-plugin-solid": "^2.8.0"
+    "typescript": "^5.3.3"
   },
   "keywords": [
     "solidjs component",

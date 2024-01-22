@@ -40,7 +40,7 @@ export const Highlighter: Component<Props> = (_props) => {
       unhighlightTag: "span",
       unhighlightClass: "",
     },
-    _props
+    _props,
   );
   const [, rest] = splitProps(props, [
     "activeIdx",
@@ -100,17 +100,17 @@ export const Highlighter: Component<Props> = (_props) => {
                     typeof props.activeStyle === "object"
                     ? { ...props.highlightStyle, ...props.activeStyle }
                     : typeof props.highlightStyle === "string" &&
-                      typeof props.activeStyle === "string"
-                    ? `${props.highlightStyle} ${props.activeStyle}`
-                    : ""
+                        typeof props.activeStyle === "string"
+                      ? `${props.highlightStyle} ${props.activeStyle}`
+                      : ""
                   : !!props.highlightStyle
-                  ? props.highlightStyle
-                  : undefined
+                    ? props.highlightStyle
+                    : undefined
               }
             >
               {props.textToHighlight.substr(
                 chunk.start,
-                chunk.end - chunk.start
+                chunk.end - chunk.start,
               )}
             </Dynamic>
           );
