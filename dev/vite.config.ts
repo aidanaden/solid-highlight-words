@@ -1,4 +1,5 @@
 import { defineConfig } from "@solidjs/start/config";
+import uno from "unocss/vite";
 
 export default defineConfig({
   start: {
@@ -7,4 +8,5 @@ export default defineConfig({
       preset: "cloudflare-pages-static",
     },
   },
+  plugins: [uno()],
 });

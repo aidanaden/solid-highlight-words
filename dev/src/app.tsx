@@ -2,19 +2,20 @@ import latinize from "latinize";
 import { Highlighter } from "solid-highlight-words";
 import { Component, createMemo, createSignal } from "solid-js";
 
-import "./main.css";
+import "@unocss/reset/tailwind.css";
+import "virtual:uno.css";
 
 export const HighlighterExample: Component = () => {
   const [searchText, setSearchText] = createSignal("and or the");
   const [textToHighlight, setTextToHighlight] = createSignal(
-    `When in the Course of human events it becomes necessary for one people to dissolve the political bands which have connected them with another and to assume among the powers of the earth, the separate and equal station to which the Laws of Nature and of Nature's God entitle them, a decent respect to the opinions of mankind requires that they should declare the causes which impel them to the separation.`,
+    `When in the Course of human events it becomes necessary for one people to dissolve the political bands which have connected them with another and to assume among the powers of the earth, the separate and equal station to which the Laws of Nature and of Nature's God entitle them, a decent respect to the opinions of mankind requires that they should declare the causes which impel them to the separation.`
   );
   const [activeIdx, setActiveIdx] = createSignal(-1);
   const [caseSensitive, setCaseSensitive] = createSignal(false);
   const searchWords = createMemo(() =>
     searchText()
       .split(/\s/)
-      .filter((word) => word),
+      .filter((word) => word)
   );
   return (
     <div class="p-3">
